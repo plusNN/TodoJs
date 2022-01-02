@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>TodoJS</h1>
+	<form>
+		<input type="text" id="inputText">
+		<button type="button" id="subBtn">確定提交 </button>
+	</form>
+	<ul id=result>
+		
+	</ul>
+
+	<div id="todoList">
+		<div id="讀書">
+			讀書
+			<button type="button" onclick="deleteWork(讀書)">X</button>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var toDoListHTML;
+
+	var result=document.getElementById('result');
+	var subBtn=document.getElementById('subBtn');
+	subBtn.addEventListener('click',function(e){
+		var inputText=document.getElementById('inputText');
+			console.log(inputText);
+		if(inputText.value==="" ){
+			alert("請輸入代辦事項");
+			return;
+			
+		}
+			var todo=document.createElement('LI');
+			todo.innerHTML=inputText.value+'<button>X</button>';
+			result.appendChild(todo);
+			inputText.value="";
+
+	});
+
+	result.addEventListener('click',function(event){
+		console.log(event.target.parentNode);
+		result.removeChild(event.target.parentNode);
+	})
+	
+</script>
+
+</html>
